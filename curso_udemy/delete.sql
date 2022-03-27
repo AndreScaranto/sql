@@ -1,0 +1,1 @@
+DELETE FROM estados WHERE estadoID IN (31,32);

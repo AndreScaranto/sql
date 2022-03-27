@@ -1,0 +1,1 @@
+UPDATE andes.estados SET nome = "Texas",sigla = "TX" WHERE estadoID = 32
