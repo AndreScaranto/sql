@@ -1,0 +1,56 @@
+SELECT COUNT(*) AS record_count FROM station_data;
+
+SELECT year, month, COUNT(*) AS record_count FROM station_data
+WHERE NOT tornado
+GROUP BY year, month;
+
+SELECT year, month, COUNT(*) AS record_count FROM station_data
+WHERE NOT tornado
+GROUP BY 1,2;
+
+SELECT year, month, COUNT(*) AS record_count FROM station_data
+WHERE NOT tornado
+GROUP BY year, month
+ORDER BY year DESC, month;
+
+SELECT COUNT(snow_depth) AS recorded_snow_depth_count
+FROM STATION_DATA;
+
+SELECT COUNT(*) AS snow_depth_null_count
+FROM STATION_DATA
+WHERE snow_depth IS NULL;
+
+SELECT month, ROUND(AVG(temperature),2) as avg_temp
+FROM STATION_DATA
+WHERE year >= 2000
+GROUP BY month;
+
+SELECT year, ROUND(SUM(snow_depth),2) as total_snow
+FROM STATION_DATA
+WHERE year >= 2000
+GROUP BY year;
+
+SELECT year, ROUND(SUM(snow_depth),2) AS total_snow,
+ROUND(SUM(precipitation),2) AS total_precipitation,
+MAX(snow_depth) AS max_snow,
+MAX(precipitation) AS max_precipitation
+FROM STATION_DATA
+WHERE year >= 2000
+GROUP BY year;
+
+SELECT year,
+SUM(precipitation) AS total_precipitation
+FROM STATION_DATA
+GROUP BY year
+HAVING total_precipitation > 30;
+
+SELECT year,
+SUM(precipitation) AS total_precipitation
+FROM STATION_DATA
+GROUP BY year
+HAVING SUM(precipitation) > 30;
+
+SELECT DISTINCT station_number FROM station_data;
+
+SELECT COUNT(DISTINCT station_number) FROM station_data;
+

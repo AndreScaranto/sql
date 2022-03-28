@@ -1,0 +1,77 @@
+SELECT * FROM STATION_DATA
+WHERE year > 2005 AND year < 2010;
+
+SELECT * FROM STATION_DATA
+WHERE month == 3
+OR month == 6
+OR month == 9
+OR month == 12;
+
+SELECT * FROM STATION_DATA
+WHERE month IN (3,6,9,12);
+
+SELECT * FROM STATION_DATA
+WHERE month NOT IN (3,6,9,12);
+
+SELECT * FROM STATION_DATA
+WHERE month % 3 == 0;
+
+SELECT * FROM STATION_DATA
+WHERE MOD(month,3) == 0;
+
+SELECT * FROM STATION_DATA
+WHERE report_code == '513A63';
+
+SELECT * FROM STATION_DATA
+WHERE report_code IN ('513A63','1F8A7B','EF616A');
+
+SELECT * FROM STATION_DATA
+WHERE length(report_code) <> 6;
+
+SELECT * FROM STATION_DATA
+WHERE report_code LIKE 'A%';
+
+SELECT * FROM STATION_DATA
+WHERE report_code LIKE 'BC%';
+
+SELECT * FROM STATION_DATA
+WHERE tornado == true AND hail == true;
+
+SELECT * FROM STATION_DATA
+WHERE tornado == 1 AND hail == 1;
+
+SELECT * FROM STATION_DATA
+WHERE tornado AND hail;
+
+SELECT * FROM STATION_DATA
+WHERE tornado == 0 AND hail;
+
+SELECT * FROM STATION_DATA
+WHERE (NOT tornado) AND hail;
+
+SELECT * FROM STATION_DATA
+WHERE snow_depth IS NULL;
+
+SELECT * FROM STATION_DATA
+WHERE precipitation <= 0.5;
+
+SELECT * FROM STATION_DATA
+WHERE precipitation IS NULL;
+
+SELECT * FROM STATION_DATA
+WHERE precipitation IS NULL OR precipitation <= 0.5;
+
+SELECT * FROM STATION_DATA
+WHERE COALESCE(precipitation,0) <= 0.5;
+
+SELECT report_code,COALESCE(precipitation,"N/A") AS rainfall
+FROM STATION_DATA;
+
+SELECT * FROM STATION_DATA
+WHERE rain = 1 AND temperature < 32 OR snow_depth > 0;
+
+SELECT * FROM STATION_DATA
+WHERE (rain = 1 AND temperature < 32) OR snow_depth > 0;
+
+SELECT * FROM STATION_DATA
+WHERE rain = 1 AND (temperature < 32 OR snow_depth > 0);
