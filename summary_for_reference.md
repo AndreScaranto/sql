@@ -104,7 +104,7 @@ The JOIN clause is used, as name to suggest, to JOIN tables, through a related c
 FROM table1 INNER JOIN table2 <br>
 ON commonColumn.table1 = commonColumn.table2;<br></i>
 
-The ON serves to specify the common column, as the example indicated. The columns can have different names in each table, though it is good practice to use the same name to avoid confusion. If the names where different, the last line would be something like:
+The ON serves to specify the common column, as the example indicated. The columns can have different names in each table. If the names where different, the last line would be something like:
 
 <i>ON commonColumn_name1.table1 = commonColumn_name2.table2;<br></i>
 
